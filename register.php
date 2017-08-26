@@ -11,6 +11,32 @@
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 	</head>
 	<body>
+	
+		<?php	
+			//Start session
+			session_start();
+			//Check whether the session variable email is present or not
+			if(isset($_SESSION['email'])) 	
+			{
+				header("location: ./index.php");
+				exit();
+			}	
+			if(isset($_GET['code']) )
+			{
+				echo "<script>";
+				
+				if($_GET['code']=='201')
+				{			
+					echo  "	alert('Invalid Username or Password');" ;
+				}
+				else if($_GET['code']=='200')
+				{
+					echo  "	alert('!!!!Successfully Register!!!');" ;
+				}
+				echo "</script>";
+			}
+		?>
+		
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -19,16 +45,16 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>                        
 					</button>
-					<a class="navbar-brand" href="./index.html">BSquare Online</a>
+					<a class="navbar-brand" href="./index.php">BSquare Online</a>
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
-						<li><a href="./index.html">Home</a></li>
-						<li><a href="./about.html">About Us</a></li>
-						<li><a href="./contact.html">Contact Us</a></li>      
+						<li><a href="./index.php">Home</a></li>
+						<li><a href="./about.php">About Us</a></li>
+						<li><a href="./contact.php">Contact Us</a></li>      
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="./registernew.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a href="./registernew.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 						<li class="active"><a href="JavaScript:Void(0);"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					</ul>
 				</div>
@@ -88,9 +114,8 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="well well-sm">
-						<form class="form-group">
+						<form class="form-group" method="POST" action="_register.php">
 							<div class="row">
-								<div class="alert1"></div>
 								<div class="col-md-12">
 									<div class="form-group">
 										<label for="email">
@@ -98,19 +123,19 @@
 										<div class="input-group">
 											<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
 											</span>
-											<input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+											<input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required="required" /></div>
 									</div> 
 									<div class="form-group">
 										<label for="password">
 											Password</label>
-										<input type="password" class="form-control" id="password" placeholder="Enter Password" required />
+										<input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required />
 									</div>									
 								</div>
 								<div class="col-md-12">
-									<p class="pull-left">										
+									<!-- <p class="pull-left">										
 									Forgot Your 
 									<a href="JavaScript:Void(0);" data-toggle="modal" data-target="#myModal"> Password?</a>		
-									<!-- Modal -->
+									<!-- Modal 
 									<div class="modal fade" id="myModal" role="dialog">
 										<div class="modal-dialog modal-lg">
 											<div class="modal-content">
@@ -136,8 +161,8 @@
 										</div>
 									</div>
 																		
-									</p>
-									<button type="submit" class="btn btn-primary pull-right" id="login">
+									</p>-->
+									<button type="submit" class="btn btn-primary pull-right" >
 										Login</button>
 								</div>
 							</div>

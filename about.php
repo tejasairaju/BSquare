@@ -11,6 +11,11 @@
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 	</head>
 	<body>
+	
+		<?php
+			//Start session
+			session_start();
+		?>
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -19,17 +24,26 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>                        
 					</button>
-					<a class="navbar-brand" href="./index.html">BSquare Online</a>
+					<a class="navbar-brand" href="./index.php">BSquare Online</a>
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
-						<li><a href="./index.html">Home</a></li>
+						<li><a href="./index.php">Home</a></li>
 						<li class="active"><a href="JavaScript:Void(0);">About Us</a></li>
-						<li><a href="./contact.html">Contact Us</a></li>      
+						<li><a href="./contact.php">Contact Us</a></li>      
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="./registernew.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-						<li><a href="./register.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<li><a href="./registernew.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<?php
+							if(isset($_SESSION['email'])) 	
+							{
+								echo "<li><a href='./includes/logout.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
+							}
+							else
+							{
+								echo "<li><a href='./register.php'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
+							}
+						?>						
 					</ul>
 				</div>
 			</div>

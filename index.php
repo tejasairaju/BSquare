@@ -11,6 +11,11 @@
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 	</head>
 	<body>
+	
+		<?php
+			//Start session
+			session_start();
+		?>
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -19,17 +24,26 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>                        
 					</button>
-					<a class="navbar-brand" href="./index.html">BSquare Online</a>
+					<a class="navbar-brand" href="./index.php">BSquare Online</a>
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
-						<li><a href="./index.html">Home</a></li>
-						<li><a href="./about.html">About Us</a></li>
-						<li><a href="./contact.html">Contact Us</a></li>      
+						<li class="active"><a href="JavaScript:Void(0);">Home</a></li>
+						<li><a href="./about.php">About Us</a></li>
+						<li><a href="./contact.php">Contact Us</a></li>      
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><a href="JavaScript:Void(0);"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-						<li><a href="./register.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<li><a href="./registernew.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<?php
+							if(isset($_SESSION['email'])) 	
+							{
+								echo "<li><a href='./includes/logout.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
+							}
+							else
+							{
+								echo "<li><a href='./register.php'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
+							}
+						?>
 					</ul>
 				</div>
 			</div>
@@ -80,78 +94,72 @@
 			</div>
 		</div>
 		<div class="container">            
-			<h1 class="h1">
-				<small>Sign in to your account</small>
+			<h1 class="h1" style="text-align: center">
+				<small>Our Achievements in Business are due to freshly picked ideas and creativeness of our Team</small>
 			</h1>       
 		</div>
+		
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="well well-sm">
-						<form class="form-group">
-							<div class="row">
-								<div class="alert1"></div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<label for="userName">
-											UserName</label>
-										<input type="text" class="form-control" id="userName" placeholder="Enter UserName" required />
-									</div>
-									<div class="form-group">
-										<label for="email">
-											Email Address</label>
-										<div class="input-group">
-											<span class="input-group-addon">
-												<span class="glyphicon glyphicon-envelope"></span>
-											</span>
-											<input type="email" class="form-control" id="email" placeholder="Enter email" required="required" />
-										</div>
-									</div> 
-									<div class="form-group">
-										<label for="phone">
-											Mobile No</label>
-										<div class="input-group">
-											<span class="input-group-addon">
-												<span class="glyphicon glyphicon-phone"></span>
-											</span>
-											<input type="text" class="form-control" id="userName" placeholder="Enter Mobile No" required />
-										</div>
-									</div>									
-									<div class="form-group">
-										<label for="password">
-											Password</label>
-										<input type="password" class="form-control" id="password" placeholder="Enter Password" required />
-									</div>
-									<div class="form-group">
-										<label for="cpassword">
-											Confirm Password</label>
-										<input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" required />
-									</div>									
-								</div>
-								<div class="col-md-12">
-									<p class="pull-left">										
-									Click Here to 
-									<a href="./register.html"> Sign Up</a>																													
-									</p>
-									<button type="submit" class="btn btn-primary pull-right" id="Register">
-										Register</button>
-								</div>
+					<div class="col-md-3">
+						<img src="themes/images/bulk-shirt-dtg-printer.jpg" alt="bulk-shirt-dtg-printer" class="img-responsive">
+						<div class="overlay">
+							<div class="text">
+								<a href="#">Click Here to Get Details Combo T-shirt</a>
+								<p class="price">RS500</p>
 							</div>
-						</form>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<img src="themes/images/Picking-the-Perfect-Blank-T-Shirt-672x309.jpg" alt="bulk-shirt-dtg-printer" class="img-responsive">
+						<div class="overlay">
+							<div class="text">
+								<a href="#">Click Here to Get Details Combo T-shirt</a>
+								<p class="price">RS500</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<img src="themes/images/wholesale-t-shirt-plain-t-shirt-bulk (1).jpg" alt="bulk-shirt-dtg-printer" class="img-responsive">
+						<div class="overlay">
+							<div class="text">
+								<a href="#">Click Here to Get Details Combo T-shirt</a>
+								<p class="price">RS500</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<img src="themes/images/s-l300.jpg" alt="bulk-shirt-dtg-printer" class="img-responsive">
+						<div class="overlay">
+							<div class="text">
+								<a href="#">Click Here to Get Details Combo T-shirt</a>
+								<p class="price">RS500</p>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</div>	
+		</div>	
+		
+		<div class="container">            
+			<h1 class="h1" style="text-align: center">
+				<strong>About us</strong>
+			</h1>       
+		</div> 		
 		<div class="container">										
-			<div class="col-md-12">
-				<legend>Navigation</legend>
-				<address>	
-					>>B2 -- BE/BTECH import & Export is one of the exports in Chennai.<br>
-					>>Established in 2017 Jan, the company has been consistently servicing high quality garments.<br>
-					>>A professional approach to reliable delivery, quality control, product development and commitment to the compliance of global standards has ensured that our list of satisfied customers keeps growing.<br>
-				</address>
+			<div class="col-md-12 h1">
+				<small>
+					<ul>	
+						<li>Keep a sharp eye on product quality and put in all efforts to raise the bar constantly</li>
+						<li>To inspire and connect with our clients to put their best selves forward every day</li>
+						<li>To inspire people to feel good and live better feel first..!</li>
+						<li>Deliver on-time, anywhere in the world</li>
+					</ul>
+				</small>
 			</div>
 		</div>
+
 		<div class="footer-color">
 			<div class="container">
 				<p class="pull-left footer-content">Copyright @ 2017 BSquare.online  All right reserved.</p>
